@@ -1,0 +1,22 @@
+.content-main{
+    padding: 30px;
+}
+.content-add{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    
+}
+.input-add{
+    height: 50px;
+    width: 140px;
+    text-indent: 20px;
+    outline: none;
+}
+.btn-add{
+    padding: 17px;
+    border: none;
+    background-color: #5FCF80;
+    color: #fff;
+    
+}

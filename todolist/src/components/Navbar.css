@@ -1,0 +1,16 @@
+.nav{
+    background-color: #F9C741;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    
+}
+.toggle-menu{
+    display: flex;
+    flex-grow: 1;
+    margin-left: 20px;
+}
+header{
+    display: flex;
+    flex-grow: 6;
+}
