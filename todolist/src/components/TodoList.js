@@ -6,8 +6,8 @@ import './css/TodoList.css';
 const TodoList = ({ todos, onTodoClick }) => (
   <div className="todolist">
     <ul className="wraptodos">
-      {todos.map((todo) => (
-        <Todo key={todo.id} {...todo} onClick={() => onTodoClick(todo.id)}   />
+      {todos.map((todo, index) => (
+        <Todo key={todo.id} {...todo} index={index} onClick={() => onTodoClick(todo.id)} />
       ))}
     </ul>
   </div>

@@ -6,9 +6,28 @@ const todos = (state = [], action) => {
                 {
                     id: action.id,
                     text: action.payload,
-                    completed: false
+                    completed: false,
+                    subTodos: []
                 }
             )
+
+        case 'ADD_SUB_TODO':
+            console.log(action)
+
+            let newTodo = state[action.index].subTodos.concat(
+                {
+                    id: action.id,
+                    description: action.description,
+                    completed: false,
+                }
+            )
+
+            return state.map((todo, index) => {
+                if (index === action.index) {
+                    todo.subTodos = newTodo;
+                }
+                return todo;
+            })
 
         case 'REMOVE_TODO':
             return [
@@ -23,11 +42,19 @@ const todos = (state = [], action) => {
                 return todo;
             })
 
+        case 'EDIT_SUB_TODO':
+            
+                
+            
+            
+
         case 'SEARCH_TODO':
-            const { value } = action;
-            const todo = state.todos.filter((val) => val.includes(value));
-            return { ...state, value, todo };
-            /* return Object.assign({}, state, {searchText:action.text}) */
+            /*  const { value } = action;
+             const todo = state.todos.filter((val) => val.includes(value));
+             return { ...state, value, todo };  */
+
+            return Object.assign({}, state, { text: action.searchText });
+
 
         case 'TOGGLE_TODO':
             return state.map(todo =>

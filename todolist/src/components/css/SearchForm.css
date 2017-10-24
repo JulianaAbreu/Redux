@@ -10,10 +10,13 @@
     height: 60px;
     border: none;
     text-indent: 20px;
+    font-size: 17px;
 }
 .btn-search{
+    margin-bottom: -10px;
     height: 60px;
     width: 90px; 
+    font-size: 13px;
     border: none; 
     background-color: #385172;
     color: #fff;  
