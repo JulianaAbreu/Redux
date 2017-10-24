@@ -1,0 +1,40 @@
+.search-todo{
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.input-search{
+    box-sizing:border-box;    
+    width: 800px;
+    height: 60px;
+    border: none;
+    text-indent: 20px;
+}
+.btn-search{
+    height: 60px;
+    width: 90px; 
+    border: none; 
+    background-color: #385172;
+    color: #fff;  
+}
+
+@media screen and (max-width: 890px){
+    .btn-search {
+        width: 80px;
+    }
+     .input-search {
+      width: 450px;
+    }
+}
+@media screen and (max-width: 520px) {
+    .btn-search {
+       width: 80px;
+   }
+    .input-search {
+     width: 140px;
+   }
+}
+
+
+

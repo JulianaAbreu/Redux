@@ -18,6 +18,20 @@ export const removeTodo = id => {
         id
     }
 }
+
+export const editTodo = (id, text) => {
+    return {
+        type:'EDIT_TODO',
+        text,
+        id
+    }
+}
+export const searchTodo = (searchText) => {
+    return {
+        type:'SEARCH_TODO',
+        searchText:''
+    }
+}
 export const toggleTodo = id => {
     return {
         type: 'TOGGLE_TODO',

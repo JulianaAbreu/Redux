@@ -1,0 +1,13 @@
+.wraptodos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-top: 25px;
+    flex-basis: 1000px;
+    justify-content: center;
+}
+.todolist{
+    display: flex;
+    justify-content: center;
+}

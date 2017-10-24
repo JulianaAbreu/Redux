@@ -2,13 +2,15 @@ import React from 'react'
 import Footer from './Footer'
 import AddTodo from '../containers/AddTodo'
 import Navbar from './Navbar';
-import '../App.css'
+import './css/App.css'
+import SearchForm from './SearchForm';
 import VisibleTodoList from '../containers/VisibleTodoList'
 
 const App = () => (
   <div className="App">
 
     <Navbar />
+    <SearchForm />
     <VisibleTodoList />
     <Footer />
     <a href="#" class="float">

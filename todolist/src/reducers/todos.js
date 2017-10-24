@@ -11,15 +11,23 @@ const todos = (state = [], action) => {
             )
 
         case 'REMOVE_TODO':
-            return {
-                ...state,
-                todos: [
-                    ...state.todos.filter(todo => (
-                        todo.id !== action.id
-                    )),
-                ],
+            return [
+                ...state.filter(todo => todo.id !== action.id),
+            ];
 
-            };
+        case 'EDIT_TODO':
+            return state.map(todo => {
+                if (todo.id == action.id) {
+                    todo.text = todo.payload
+                }
+                return todo;
+            })
+
+        case 'SEARCH_TODO':
+            const { value } = action;
+            const todo = state.todos.filter((val) => val.includes(value));
+            return { ...state, value, todo };
+            /* return Object.assign({}, state, {searchText:action.text}) */
 
         case 'TOGGLE_TODO':
             return state.map(todo =>

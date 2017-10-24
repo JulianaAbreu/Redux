@@ -1,24 +1,29 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import removeTodo from '../containers/RemoveTodo';
+import { connect } from 'react-redux';
+import { removeTodo, editTodo } from '../actions';
+import './css/Todo.css';
 
-const Todo = ({ onClick, completed, text, deleteTodo,onClickRemove }) => (
 
-  <li
-    onClick={onClick}
-    style={{
-      textDecoration: completed ? 'line-through' : 'none'
-    }}
+const Todo = ({ onClick, completed, text, id, dispatch,key }) => (
+<div>
+  <li 
+    onClick={onClick} className="todo"
+    
   >
-    {text}
+  <input contentEditable style={{
+      textDecoration: completed ? 'line-through' : 'none'
+    }} value={text} onChange={(e) => dispatch(editTodo(id, e.target.value))} />
+    
     <button
       type="button"
-      className="todo-delete"
-      onClickRemove={() => Todo(text.id)}
+      className="btn-delete"
+      onClick={(e) => dispatch(removeTodo(id))}
     >
       Delete
   </button>
   </li>
+  </div>
 )
 
 Todo.propTypes = {
@@ -26,7 +31,8 @@ Todo.propTypes = {
   completed: PropTypes.bool.isRequired,
   text: PropTypes.string.isRequired,
   deleteTodo: PropTypes.func.isRequired,
-  onClickRemove: PropTypes.func.isRequired
+  onClickRemove: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired
 }
 
-export default Todo
+export default connect()(Todo)
