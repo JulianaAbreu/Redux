@@ -3,7 +3,7 @@ import { toggleTodo } from '../actions'
 import { searchTodo } from '../actions'
 import TodoList from '../components/TodoList'
 
-const getVisibleTodos = (todos, filter, searchText) => {
+const getVisibleTodos = (todos, filter) => {
   switch (filter) {
     case 'SHOW_ALL':
       return todos
@@ -11,15 +11,25 @@ const getVisibleTodos = (todos, filter, searchText) => {
       return todos.filter(t => t.completed)
     case 'SHOW_ACTIVE':
       return todos.filter(t => !t.completed)
-    case 'SEARCH_TODO':
-    return Object.assign({}, todos, { text: searchText });
-    
   }
 }
 
+const getSeachTodos = (todos, searchText) => {
+  if (searchText !== '') {
+    return [
+      ...todos.filter(todo => todo.text.includes(searchText)),
+    ]
+  }
+  return todos;
+}
+
 const mapStateToProps = state => {
+  let todos = getVisibleTodos(state.todos, state.visibilityFilter);
+
+  todos = getSeachTodos(todos, state.searchText);
+
   return {
-    todos: getVisibleTodos(state.todos, state.visibilityFilter)
+    todos,
   }
 }
 
@@ -27,7 +37,6 @@ const mapDispatchToProps = dispatch => {
   return {
     onTodoClick: id => {
       dispatch(toggleTodo(id))
-
     },
     onChangeInput: searchText => {
       dispatch(searchTodo(searchText))

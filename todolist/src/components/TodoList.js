@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import Todo from './Todo'
 import './css/TodoList.css';
 
-const TodoList = ({ todos, onTodoClick }) => (
+const TodoList = ({ todos, onTodoClick, searchText }) => (
   <div className="todolist">
     <ul className="wraptodos">
       {todos.map((todo, index) => (
-        <Todo key={todo.id} {...todo} index={index} onClick={() => onTodoClick(todo.id)} />
+        <Todo key={todo.id} {...todo} index={index} onClick={() => onTodoClick(todo.id)} searchText={searchText} />
       ))}
     </ul>
   </div>
@@ -21,7 +21,7 @@ TodoList.propTypes = {
       text: PropTypes.string.isRequired
     }).isRequired
   ).isRequired,
-  onTodoClick: PropTypes.func.isRequired
+  onTodoClick: PropTypes.func.isRequired,
 }
 
 export default TodoList

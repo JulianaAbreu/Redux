@@ -30,3 +30,6 @@
     list-style: none;
     margin-left: 15px;   
 }
+.done{
+    color: #1abc9c;
+}

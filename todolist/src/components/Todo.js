@@ -8,22 +8,25 @@ import './css/Todo.css';
 /* ({ todos, onClick, completed, text, id, dispatch, key, subTodos, index })
  */
 
-const Todo = ({ todos, onClick, completed, text, id, dispatch, key, subTodos, index, onTodoClick }) => (
+const Todo = ({ onClick, completed, text, id, dispatch, subTodos, index, onTodoClick }) => (
   <div>
     <li
-      onClick={onClick} className="todo"
+      className="todo"
     >
-      <input contentEditable style={{
-        textDecoration: completed ? 'line-through' : 'none'
+
+      <input onClick={onClick} contentEditable style={{
+        textDecoration: completed ? 'line-through' : 'none', color: completed ? '#1abc9c' : '#000'
       }} value={text} onChange={(e) => dispatch(editTodo(id, e.target.value))} className="input-title" />
+
 
       <div className="content-subitems">
         <ul className="subitems">
-          {subTodos.map((subtodo) => (
-
-            <SubItems key={subtodo.id} {...subtodo} onClick={() => onTodoClick(subtodo.id)} />
+          
+          {subTodos.map((subtodo, iterator) => (
+            <SubItems key={subtodo.id} {...subtodo} todoIndex={index} subtodoIndex={iterator} />
 
           ))}
+       
         </ul>
       </div>
 
@@ -47,8 +50,6 @@ Todo.propTypes = {
   onClick: PropTypes.func.isRequired,
   completed: PropTypes.bool.isRequired,
   text: PropTypes.string.isRequired,
-  deleteTodo: PropTypes.func.isRequired,
-  onClickRemove: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired
 }
 

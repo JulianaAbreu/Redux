@@ -5,7 +5,7 @@ export const addTodo = text => {
     return {
         type: 'ADD_TODO',
         id: nextTodoId++,
-        payload: text, 
+        payload: text,
         subTodos: []
     }
 }
@@ -13,17 +13,18 @@ export const addSubTodo = (description, index) => {
     return {
         type: 'ADD_SUB_TODO',
         id: nextSubTodoId++,
-        completed:false,
+        completed: false,
         index,
         description
-        
+
     }
 }
-export const editSubTodo = (id, description) => {
+export const editSubTodo = (todoIndex, text, subtodoIndex) => {
     return {
         type: 'EDIT_SUB_TODO',
-        description,
-        id
+        text,
+        todoIndex,
+        subtodoIndex
     }
 }
 export const setVisibilityFilter = filter => {
@@ -32,6 +33,14 @@ export const setVisibilityFilter = filter => {
         filter
     }
 }
+
+export const setSearch = searchText => {
+    return {
+        type: 'SET_SEARCH_TEXT',
+        searchText,
+    };
+}
+
 export const removeTodo = id => {
     return {
         type: 'REMOVE_TODO',
@@ -50,7 +59,7 @@ export const editTodo = (id, text) => {
 export const searchTodo = (searchText) => {
     return {
         type: 'SEARCH_TODO',
-        searchText: ''
+        searchText
     }
 }
 export const toggleTodo = id => {

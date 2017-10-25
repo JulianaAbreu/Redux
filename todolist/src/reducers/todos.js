@@ -37,24 +37,24 @@ const todos = (state = [], action) => {
         case 'EDIT_TODO':
             return state.map(todo => {
                 if (todo.id == action.id) {
-                    todo.text = todo.payload
+                    todo.text = todo.text
                 }
                 return todo;
             })
 
         case 'EDIT_SUB_TODO':
-            
-                
-            
-            
+            return state.map((todo) => {
+                if(todo.id !== action.todoIndex) return todo;
+                todo.subTodos = todo.subTodos.map(subtodo => {
+                    if (subtodo.id == action.subtodoIndex) {
+                        subtodo.description = action.text
+                    }
+    
+                    return subtodo;
+                });
 
-        case 'SEARCH_TODO':
-            /*  const { value } = action;
-             const todo = state.todos.filter((val) => val.includes(value));
-             return { ...state, value, todo };  */
-
-            return Object.assign({}, state, { text: action.searchText });
-
+                return todo;
+            });
 
         case 'TOGGLE_TODO':
             return state.map(todo =>

@@ -13,18 +13,18 @@ const App = () => (
     <SearchForm />
     <VisibleTodoList />
     <Footer />
-    <a href="#" class="float">
-      <i class="fa fa-plus my-float"></i>
+    <a href="#" className="float">
+      <i className="fa fa-plus my-float"></i>
     </a>
     <a href="#openModal" className="float">
-      <img src="" />
+      <img src=""/>
     </a>
 
     <div id="openModal" className="modalDialog">
       <div>	<a href="#close" title="Close" className="close">X</a>
 
         <div className="form-todo">
-        <AddTodo />
+          <AddTodo />
 
         </div>
 

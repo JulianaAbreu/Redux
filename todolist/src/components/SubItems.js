@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import { editSubTodo } from '../actions';
 import './css/SubItem.css'
 
-const SubItems = ({ description, onClick, completed, index, dispatch }) => (
+const SubItems = ({ description, onClick, completed, todoIndex, dispatch, subtodoIndex }) => (
     <li>
-        <input value={description} onChange={(e) => {e.preventDefault(),dispatch(editSubTodo(index, e.target.value))}} />
+        <input value={description} onChange={(e) => {e.preventDefault(), dispatch(editSubTodo(todoIndex, e.target.value, subtodoIndex))}} className="input-subitem"/>
     </li>
 )
 
@@ -15,6 +15,7 @@ SubItems.PropTypes = {
     onClick: PropTypes.func.isRequired,
     id: PropTypes.number.isRequired,
     completed: PropTypes.bool.isRequired,
+    index: PropTypes.number.isRequired
 }
 
 export default connect()(SubItems)
