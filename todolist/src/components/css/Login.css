@@ -1,0 +1,42 @@
+
+.form-login{
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+}
+.content-login{
+    display: flex;
+    justify-content: center;
+    margin-top: 20%;
+   
+}
+.input-email, .input-password, .btn-login{
+    padding: 13px;
+    text-indent: 5px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+.btn-login{
+    margin-top: 5px;
+    border: none;
+    color: white;
+    background-color: #16a085;
+    font-size: 14px;
+}
+.input-email, .input-password{
+    font-size: 14px;
+    background-color: rgba(236,240,241, 0.5);
+    border: 1px solid #ecf0f1;
+    margin-top: 2px;
+}
+.border-content{
+    border: 1px solid #EFEFEE;
+    padding: 40px;   
+    border-radius: 10px;
+}
+.forgot-pass{
+    margin-top: 10px;
+}
+.content-form{
+    margin-top: 35px;
+}

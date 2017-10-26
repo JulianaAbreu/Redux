@@ -1,4 +1,5 @@
-const todos = (state = [], action) => {
+const todos = (
+    state = [], action) => {
 
     switch (action.type) {
         case 'ADD_TODO':
@@ -25,10 +26,11 @@ const todos = (state = [], action) => {
             return state.map((todo, index) => {
                 if (index === action.index) {
                     todo.subTodos = newTodo;
+
                 }
                 return todo;
             })
-
+        
         case 'REMOVE_TODO':
             return [
                 ...state.filter(todo => todo.id !== action.id),
@@ -44,17 +46,39 @@ const todos = (state = [], action) => {
 
         case 'EDIT_SUB_TODO':
             return state.map((todo) => {
-                if(todo.id !== action.todoIndex) return todo;
+                if (todo.id !== action.todoIndex) return todo;
                 todo.subTodos = todo.subTodos.map(subtodo => {
                     if (subtodo.id == action.subtodoIndex) {
                         subtodo.description = action.text
                     }
-    
+
                     return subtodo;
                 });
 
                 return todo;
             });
+
+        case 'REMOVE_SUB_TODO':
+            return state.map((todo) => {
+                if (todo.id !== action.todoIndex) {
+                    return todo
+                } else {
+                    todo.subTodos = todo.subTodos.filter(subtodo => subtodo.id !== action.subtodoIndex)
+
+                }
+                console.log(todo.subTodos)
+                return todo;
+            });
+        /* 
+                    return state.map((todo) => {
+                        if (todo.id !== action.todoIndex) {
+                            return todo
+                        } else {
+                            todo.subTodos = todo.subTodos.filter(subtodo => subtodo.id !== action.subtodoIndex)
+        
+                        }
+                        console.log(todo.subTodos)
+                        return todo; */
 
         case 'TOGGLE_TODO':
             return state.map(todo =>

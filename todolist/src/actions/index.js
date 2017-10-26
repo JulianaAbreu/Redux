@@ -1,6 +1,15 @@
 let nextTodoId = 0
 let nextSubTodoId = 0
 
+
+export const loginUser = (email, password) => {
+    return {
+        type: 'LOGIN_USER',
+        email,
+        password
+        
+    }
+}
 export const addTodo = text => {
     return {
         type: 'ADD_TODO',
@@ -27,6 +36,15 @@ export const editSubTodo = (todoIndex, text, subtodoIndex) => {
         subtodoIndex
     }
 }
+
+export const removeSubTodo = (todoIndex, subtodoIndex) => {
+    return {
+        type: 'REMOVE_SUB_TODO',
+        subtodoIndex,
+        todoIndex
+    }
+}
+
 export const setVisibilityFilter = filter => {
     return {
         type: 'SET_VISIBILITY_FILTER',
@@ -55,6 +73,8 @@ export const editTodo = (id, text) => {
         id
     }
 }
+
+
 
 export const searchTodo = (searchText) => {
     return {

@@ -4,13 +4,15 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import todoApp from './reducers'
 import App from './components/App'
+import Login from './components/Login'
 
 let store = createStore(todoApp,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 render(
   <Provider store={store}>
-    <App />
+   {/*  <App /> */}
+    <Login />
   </Provider>,
   document.getElementById('root')
 )
