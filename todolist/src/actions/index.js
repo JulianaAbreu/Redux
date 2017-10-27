@@ -2,13 +2,22 @@ let nextTodoId = 0
 let nextSubTodoId = 0
 
 
-export const loginUser = (email, password) => {
+
+
+export const loginRequest = (email, password) => {
+    const user = { email: email, password: password };
+    return { user, type: 'LOGIN_ATTEMPT' };
+
+}
+export const loginSuccess = (response) => {
     return {
-        type: 'LOGIN_USER',
-        email,
-        password
-        
+        type:'LOGIN_SUCCESS',
+        response
     }
+}
+export const loginFailed = (error) => {
+    type:'LOGIN_ERROR',
+    error
 }
 export const addTodo = text => {
     return {
@@ -36,7 +45,13 @@ export const editSubTodo = (todoIndex, text, subtodoIndex) => {
         subtodoIndex
     }
 }
-
+export const login = (email, password) => {
+    return {
+        type: 'LOGIN',
+        email,
+        password
+    }
+}
 export const removeSubTodo = (todoIndex, subtodoIndex) => {
     return {
         type: 'REMOVE_SUB_TODO',
