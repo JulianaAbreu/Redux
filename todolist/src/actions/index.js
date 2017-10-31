@@ -2,13 +2,11 @@ let nextTodoId = 0
 let nextSubTodoId = 0
 
 
-
-
 export const loginRequest = (email, password) => {
     const user = { email: email, password: password };
     return { user, type: 'LOGIN_ATTEMPT' };
-
 }
+
 export const loginSuccess = (response) => {
     return {
         type:'LOGIN_SUCCESS',
@@ -19,6 +17,7 @@ export const loginFailed = (error) => {
     type:'LOGIN_ERROR',
     error
 }
+
 export const addTodo = text => {
     return {
         type: 'ADD_TODO',

@@ -6,7 +6,7 @@ import searchText from './searchText'
 const todoApp = combineReducers({
   todos,
   visibilityFilter,
-  searchText,
+  searchText
 })
 
 export default todoApp
