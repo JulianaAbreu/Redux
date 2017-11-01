@@ -8,7 +8,6 @@ import VisibleTodoList from '../containers/VisibleTodoList'
 
 const App = () => (
   <div className="App">
-
     <Navbar />
     <SearchForm />
     <VisibleTodoList />
@@ -17,7 +16,7 @@ const App = () => (
       <i className="fa fa-plus my-float"></i>
     </a>
     <a href="#openModal" className="float">
-      <img src=""/>
+      <img src="" />
     </a>
 
     <div id="openModal" className="modalDialog">
@@ -30,8 +29,8 @@ const App = () => (
 
       </div>
     </div>
-
   </div>
+
 )
 
 export default App

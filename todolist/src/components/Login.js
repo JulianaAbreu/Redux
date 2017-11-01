@@ -16,7 +16,9 @@ export default class Login extends Component {
             password: '',
             error: ''
         }
+        
     }
+
 
     handleSubmitLogin(e, dispatch) {
         /* e.preventDefault();
@@ -26,14 +28,17 @@ export default class Login extends Component {
         type: 'LOGIN',
             axios.post('https://private-d5cad-teste594.apiary-mock.com/login')
                 .then((response => {
-
                     const user = response.data;
+                    console.log(user)
 
-                    if (user.email === this.state.email && user.password === this.state.password) {
-
+                    if (this.state.email === user.user.email && this.state.password === user.user.password) {
+                        
+                        //<Redirect to ={{pathname:'/App', state:{from: props.location}}} />
                         console.log('response;', response)
                         const { email, password } = response.data
                         console.log('aqui') //redirect
+                        //this.props.history.push('/App');
+
 
                     } else {
                         console.log('Usuário inválido')
@@ -43,6 +48,7 @@ export default class Login extends Component {
                 })
 
         //Verificar/Validar a request que eu envio no apiary
+        //Nao faz sentido algum dar map/filter em um objeto, mas sim, num array!
     }
 
     handleChangePass(e) {
@@ -98,7 +104,6 @@ export default class Login extends Component {
 
     render() {
         const users = this.state;
-
         return (
             <main>
                 <section className="content-login">
